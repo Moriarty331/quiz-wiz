@@ -1,0 +1,109 @@
+/* Navbar */
+.navbar-container
+{
+    width: 100%;
+    border: 1px solid black;
+    position: fixed;
+    display: grid;
+    height: 5rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+
+.nav-left, .nav-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-left p{
+    font-size: 1.3rem;
+}
+
+.menu-button
+{
+    font-size: 1.3rem;
+}
+
+.logo-section > h2{
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.nav-left > div:nth-child(3) {
+    display: none;
+}
+
+.plus-section, .notifications-section, .profile-section{
+    background-color: var(--primary);
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    color: white;
+}
+
+.icon{
+    font-size: 1rem;
+}
+
+.nav-right {
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.settings-section
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.settings-icon {
+    font-size: 1rem;
+}
+
+/* Media Quaries */
+
+
+/* Tablet styles */
+@media screen and (min-width: 700px) {
+    .plus-section, .notifications-section, .profile-section {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    .nav-left h2 {
+        font-size: 2.4rem;
+    }
+
+    .menu-button {
+        font-size: 1.7rem;
+    }
+}
+  
+/* Desktop styles */
+@media screen and (min-width: 1024px) {
+    .nav-left > div:nth-child(3) {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-left{
+        gap: 3rem;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+    .navbar-container {
+        
+    }
+
+}
