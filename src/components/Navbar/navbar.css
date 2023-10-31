@@ -2,12 +2,12 @@
 .navbar-container
 {
     width: 100%;
-    border: 1px solid black;
     position: fixed;
     display: grid;
-    height: 5rem;
+    height: 5.5rem;
     grid-template-columns: 1fr 1fr;
-    padding: 1rem;
+    padding: 0 1rem;
+    background-color: white;
 }
 
 .nav-left, .nav-right{
@@ -23,11 +23,13 @@
 
 .menu-button
 {
-    font-size: 1.3rem;
+    display: block;
+    font-size: 1rem;
 }
 
+
 .logo-section > h2{
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     color: var(--primary);
 }
 
@@ -44,10 +46,12 @@
     align-items: center;
     border-radius: 100%;
     color: white;
+    position: relative;
+    cursor: pointer;
 }
 
 .icon{
-    font-size: 1rem;
+    font-size: 1.3rem;
 }
 
 .nav-right {
@@ -55,36 +59,116 @@
     justify-content: flex-end;
 }
 
-
 .settings-section
 {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
+    cursor: pointer;
 }
 
 .settings-icon {
     font-size: 1rem;
 }
 
-/* Media Quaries */
+.settings-dropdown-container{
+    position: absolute;
+    left: 0;
+    top: 2rem;
+    width: 20rem;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
 
+.settings-dropdown-container li
+{
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    z-index: 5;
+}
+
+.settings-dropdown-container li:not(:last-child)
+{
+    border-bottom: 1px solid black;
+}
+
+#notifications-dropdown {
+    left: auto;
+    right: 5px;
+    width: 13rem;
+}
+
+#notifications-dropdown li
+{
+    height: 2rem;
+}
+
+.sidebar {
+    position: fixed;
+    border: 5px solid green;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    background-color: green;
+    transform: translateX(-100vw);
+    transition: transform 0.5s;
+}
+
+.sidebar > .exit
+{
+    float: right;
+    font-size: 25px;
+}
+
+.show {
+    transform: translateX(0vw);
+}
+
+.animate-dropdown {
+    transform: translateY(0);
+}
+
+.animate-dropdown-2{
+    transform: translateY(-50%);
+    transition: transform 0.5s;
+}
+
+
+
+/* Media Quaries */
 
 /* Tablet styles */
 @media screen and (min-width: 700px) {
-    .plus-section, .notifications-section, .profile-section {
-        height: 2.5rem;
-        width: 2.5rem;
-    }
 
-    .nav-left h2 {
-        font-size: 2.4rem;
+    #notifications-dropdown {
+        left: auto;
+        right: 3rem;
+        width: 20rem;
     }
 
     .menu-button {
         font-size: 1.7rem;
     }
+
+    .nav-left h2 {
+        font-size: 2.5rem;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+    }
+
+    .plus-section, .notifications-section, .profile-section{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    
 }
   
 /* Desktop styles */
@@ -102,8 +186,17 @@
         display: none;
     }
 
-    .navbar-container {
-        
+    .nav-left h2 {
+        font-size: 2.7rem;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+    }
+
+    .plus-section, .notifications-section, .profile-section{
+        height: 2.9rem;
+        width: 2.9rem;
     }
 
 }

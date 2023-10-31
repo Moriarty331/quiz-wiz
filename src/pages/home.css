@@ -1,0 +1,59 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+.home-main{
+    width: 90%;
+    background-color: var(--background);
+    margin: auto;
+    margin-top: 5.5rem;
+    height: 86vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.navbar-container {
+}
+
+.quiz {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    padding: 0.1rem;
+    border-radius: 10px;
+    background-color: white;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.quiz-icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+    
+}
+
+.add {
+    height: 2rem;
+    width: 10rem;
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 1024px){
+    .add {
+        width: 25rem;
+        height: 2.5rem;
+    }
+}

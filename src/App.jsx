@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home/>}></Route>
-          <Route path='Create-task' element={<CreateTask/>}></Route>
+          <Route path='create-task' element={<CreateTask/>}></Route>
         </Routes>
       </Router>
     </>

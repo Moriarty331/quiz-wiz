@@ -1,0 +1,52 @@
+.create-task-container{
+    width: 100%;
+    background-color: var(--background);
+}
+
+.create-task-main{
+    min-height: 89vh;
+    width: 100%;
+    margin: auto;
+    margin-top: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.create-task-main > div
+{
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0px 1px 10px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 1px 10px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 10px -2px rgba(0,0,0,0.75);
+}
+
+.add-card > button {
+    margin: auto;
+    height: 2.3rem;
+    width: 10rem;
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.create {
+    height: 2.5rem;
+    width: 13rem;
+    float: right;
+    background-color: var(--primary);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+

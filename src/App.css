@@ -12,3 +12,9 @@
   --primary: #4255FF;
   --background: #F6F7FB;
 }
+
+.home, .create-task-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}

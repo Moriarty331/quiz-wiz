@@ -1,0 +1,54 @@
+.input-term-definition{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input-term-definition > div > input
+{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 100%;
+    height: 2rem;
+    padding: 0 0.5rem;
+    overflow-wrap: break-word;
+}
+
+.input-term-definition > div {
+    text-align: center;
+    width: 100%;
+    max-height: auto;
+}
+
+.add-card{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    position: relative;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 1024px) {
+    .input-term-definition {
+        flex-direction: row;
+    }
+
+    .create-task-main {
+        width: 70%;
+    }
+    
+    .create-task-main > div:not(:last-child){
+        padding: 2rem;
+    }
+
+    .input-term-definition > div > input {
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    .term > input {
+        font-size: 500px;
+    }
+}
