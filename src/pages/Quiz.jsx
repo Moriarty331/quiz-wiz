@@ -1,16 +1,18 @@
-
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
-import {Flashcard} from '../components/Flashcard/Flashcard';
-import {FlashcardItem} from '../components/Flashcard/Flashcard';
-import {Navbar} from '../components/Navbar/Navbar';
+import {Navbar} from '../components/Navbar/Navbar'
 import { InputTermDefinition } from '../components/TermDefinition/InputTermDefinition';
-import {MdQuiz} from 'react-icons/md'
-import './home.css'
+import {Flashcard, FlashcardQuiz} from '../components/Flashcard/Flashcard';
+import './quiz.css'
 
+export const Quiz = () => {
+    const [flashcards, setFlashcards] = useState([
+        {
+            termName: "Johann Sebastian Bach",
+            definitionName: "was one of the best knowns of all composers in classical music. He was a natural genius at keyboard and composing and he also mastered the organ and harpsichord.",
+        }
+    ]);
 
-export const Home = () => {
-    const [flashcards, setFlashcards] = useState([]);
+    const [userAnswer, setUserAnswer] = useState("");
     const [term, setTerm] = useState("");
     const [definition, setdefinition] = useState("");
     const [show, setShow] = useState(true);
@@ -26,6 +28,10 @@ export const Home = () => {
         setdefinition(value);
     }
 
+    const handleCorrectAns = (value) => {
+        setUserAnswer(value);
+    }
+
     const addFlashcard = () =>
     {
         const flashcard = {
@@ -33,7 +39,7 @@ export const Home = () => {
             definitionName : definition,
         }
 
-        if (term != "" && definition != " ") {
+        if (term != "" && definition != "") {
             setFlashcards([...flashcards, flashcard])
         }
         setTerm('');
@@ -42,56 +48,40 @@ export const Home = () => {
 
     }
 
-    const handleFlashcard = () => {
-        setShow(!show)
-    }
-
-    const handleCount = () => {
+    const submit = () => {
+        (userAnswer.toLowerCase() === flashcards[index].termName.toLowerCase() ? console.log("Correct") : console.log("Wrong"))
         if (index < flashcards.length - 1) 
             setIndex(index + 1)
         else if (index === flashcards.length - 1)
             setIndex(0)
-        setShow(true)
+
+        setUserAnswer("");
+
     }
 
     console.log(flashcards)
     return (
-        <div className="home">
-            <Navbar name="Home"></Navbar>
-            
-            <div className="home-main">
+        <div className="quiz-container">
+            <Navbar name="Quiz"></Navbar>
+            <div className="quiz-main">
                 <InputTermDefinition
                     onTermChange={handleTerm}
                     onDefinitionChange={handleDefinition}
                     termValue={term}        
-                    DefinitionValue={definition}
-                >
+                    DefinitionValue={definition}>
                     <button className='add' onClick={addFlashcard}>Add Flashcard</button>
                 </InputTermDefinition>
                 
-                <div className="options">
-                    <Link to="/quiz">
-                        <div className="quiz">
-                            <h2>Quiz</h2>
-                            <MdQuiz className='quiz-icon'></MdQuiz>
-                        </div>
-                    </Link>
-                </div>
-
-
-                <Flashcard countFunction={handleCount}>
-                    <FlashcardItem 
-                    term={isEmpty ? "" : flashcards[index].termName} 
-                    definition={isEmpty ? "" : flashcards[index].definitionName} 
-                    showCard={handleFlashcard}
-                    showFlashCard={show}
-                    >   
-                    </FlashcardItem> 
-                                                           
+                <Flashcard>
+                    <FlashcardQuiz 
+                        definition={isEmpty ? "" : flashcards[index].definitionName}
+                        answer={isEmpty ? "" : flashcards[index].termName}
+                        submit={submit}
+                        userAnswer={handleCorrectAns}
+                        UserValue={userAnswer}
+                    />
                 </Flashcard>
-                
             </div>
-
         </div>
     )
 }

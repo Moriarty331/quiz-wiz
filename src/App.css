@@ -13,7 +13,7 @@
   --background: #F6F7FB;
 }
 
-.home, .create-task-container{
+.home, .create-task-container, .quiz-container{
   position: relative;
   display: flex;
   flex-direction: column;

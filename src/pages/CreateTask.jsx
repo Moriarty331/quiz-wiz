@@ -10,16 +10,20 @@ export const CreateTask = () => {
         setTermDefinitions([...termDefinitions, <InputTermDefinition></InputTermDefinition>])
     }
 
+    console.log(termDefinitions.length)
     return (
         <div className="create-task-container">
             <Navbar name="Create Task"></Navbar>
             <div className="create-task-main">
-
-                {termDefinitions.map((data, index) => {
+                {termDefinitions.map((data,index) => {
                     return (
-                        data
+                        <div key={index} style={{position: "relative"}}>
+                            <p className='count'>{index + 1}</p>
+                            {data}
+                        </div>
                     )
                 })}
+
                 <div className="add-card">
                     <button onClick={addCard}>Add Card</button>
                 </div>

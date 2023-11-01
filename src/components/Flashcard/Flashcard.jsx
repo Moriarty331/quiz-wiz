@@ -16,7 +16,6 @@ export const Flashcard = (props) => {
 
 export const FlashcardItem = (props) => {
     const {showFlashCard} = props;
-    
     return (
         <div className="flashcard" onClick={props.showCard}> 
             {showFlashCard ?
@@ -28,6 +27,21 @@ export const FlashcardItem = (props) => {
                 <p>{props.definition}</p>
             </div>
             }     
+        </div>
+    )
+}
+
+export const FlashcardQuiz = (props) => {
+    const {correctAnswer} = props;
+    const {userAnswer} = props;
+    
+    return (
+        <div className="flashcard-quiz">
+            <h3>{props.definition}</h3>
+            <div className="answer-section">
+                <input type="text" placeholder='Answer' value={props.UserValue} onChange={(e) => userAnswer(e.target.value)}/>
+                <button onClick={props.submit}>Answer</button>
+            </div>
         </div>
     )
 }

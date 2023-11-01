@@ -22,7 +22,6 @@
 .quiz {
     display: flex;
     flex-direction: row;
-    background-color: red;
     align-items: center;
     justify-content: center;
     width: 10rem;
@@ -51,6 +50,10 @@
     border-radius: 10px;
 }
 
+.options a{
+    text-decoration: none;
+    color: black;
+}
 @media screen and (min-width: 1024px){
     .add {
         width: 25rem;
