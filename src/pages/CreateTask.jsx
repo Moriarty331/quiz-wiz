@@ -10,7 +10,6 @@ export const CreateTask = () => {
         setTermDefinitions([...termDefinitions, <InputTermDefinition></InputTermDefinition>])
     }
 
-    console.log(termDefinitions);
     return (
         <div className="create-task-container">
             <Navbar name="Create Task"></Navbar>

@@ -9,14 +9,14 @@ export const Flashcard = (props) => {
                 {props.children}
             </div>     
 
-            <AiFillCheckSquare className='check'></AiFillCheckSquare>   
+            <AiFillCheckSquare className='check' onClick={props.countFunction}></AiFillCheckSquare>   
         </div>
     )
 }
 
 export const FlashcardItem = (props) => {
     const {showFlashCard} = props;
-    console.log(showFlashCard);
+    
     return (
         <div className="flashcard" onClick={props.showCard}> 
             {showFlashCard ?

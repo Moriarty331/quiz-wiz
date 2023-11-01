@@ -19,7 +19,7 @@ export const InputTermDefinition = (props) => {
             <div className="definition section">
                 <input 
                 type="textarea" 
-                placeholder='Enter defintiion'
+                placeholder='Enter definition'
                 value={props.DefinitionValue}
                 onChange={(e) => onDefinitionChange(e.target.value)}
                 />
