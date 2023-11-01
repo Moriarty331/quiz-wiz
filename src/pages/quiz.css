@@ -11,6 +11,7 @@
     flex-direction: column;
     gap: 1rem;
     background-color: var(--background);
+    z-index: 3;
 }
 
 .quiz-container {
@@ -25,3 +26,28 @@
     cursor: auto;
 }
 
+.correct-wrong {
+    position: relative;
+    font-size: 20rem;
+    position: absolute;
+    margin: auto;
+    width: inherit;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    background-color: red;
+    transform: translateY(-100vw);
+}
+
+.correct {
+    position: absolute;
+    transform: translateY(-100vw);
+    transition: transform 0.5s;
+    color: green;
+}
+
+.slide-bottom {
+    transform: translateY(100vw);
+}

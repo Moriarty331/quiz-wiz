@@ -40,7 +40,7 @@ export const FlashcardQuiz = (props) => {
             <h3>{props.definition}</h3>
             <div className="answer-section">
                 <input type="text" placeholder='Answer' value={props.UserValue} onChange={(e) => userAnswer(e.target.value)}/>
-                <button onClick={props.submit}>Answer</button>
+                <button onClick={props.submit} className="submit">Answer</button>
             </div>
         </div>
     )

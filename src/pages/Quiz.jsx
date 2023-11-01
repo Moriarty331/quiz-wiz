@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {Navbar} from '../components/Navbar/Navbar'
 import { InputTermDefinition } from '../components/TermDefinition/InputTermDefinition';
 import {Flashcard, FlashcardQuiz} from '../components/Flashcard/Flashcard';
+import {AiOutlineCheck} from 'react-icons/ai'
 import './quiz.css'
 
 export const Quiz = () => {
@@ -48,15 +49,32 @@ export const Quiz = () => {
 
     }
 
-    const submit = () => {
-        (userAnswer.toLowerCase() === flashcards[index].termName.toLowerCase() ? console.log("Correct") : console.log("Wrong"))
-        if (index < flashcards.length - 1) 
-            setIndex(index + 1)
-        else if (index === flashcards.length - 1)
-            setIndex(0)
+    const submit = (e) => {
+        
+        
+        
+        if (userAnswer.toLowerCase() === flashcards[index].termName.toLowerCase())
+        {
+            const correct = document.querySelector(".correct");
+            correct.classList.add("slide-bottom")
+            setTimeout(() => {
+                correct.classList.remove("slide-bottom");
+            }, 1000);
+        }
+        
+        else {
 
-        setUserAnswer("");
+        }
 
+        setTimeout(() => {
+            if (index < flashcards.length - 1) 
+                setIndex(index + 1)
+            else if (index === flashcards.length - 1)
+                setIndex(0)
+
+            setUserAnswer("");
+        }, 700)
+        
     }
 
     console.log(flashcards)
@@ -80,6 +98,9 @@ export const Quiz = () => {
                         userAnswer={handleCorrectAns}
                         UserValue={userAnswer}
                     />
+                    <div className="correct-wrong">
+                        <AiOutlineCheck className='correct'></AiOutlineCheck>
+                    </div>
                 </Flashcard>
             </div>
         </div>
