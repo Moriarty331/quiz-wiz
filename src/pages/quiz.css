@@ -1,8 +1,7 @@
 
 .quiz-main {
-    height: 500px;
     color: black;
-    height: 87vh;
+    height: 86vh;
     width: 100%;
     margin: auto;
     margin-top: 5.4rem;
@@ -26,9 +25,8 @@
     cursor: auto;
 }
 
-.correct-wrong {
-    position: relative;
-    font-size: 20rem;
+.correct-container, .wrong-container{
+    font-size: 10rem;
     position: absolute;
     margin: auto;
     width: inherit;
@@ -37,17 +35,38 @@
     align-items: center;
     justify-content: center;
     z-index: 0;
-    background-color: red;
     transform: translateY(-100vw);
+    transition: transform 0.5s;
 }
 
 .correct {
-    position: absolute;
-    transform: translateY(-100vw);
-    transition: transform 0.5s;
     color: green;
 }
 
+.wrong {
+    color: red;
+}
+
 .slide-bottom {
-    transform: translateY(100vw);
+    transform: translateY(0);
+}
+
+.darken {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.count-flashcards{
+    text-align: center;
+}
+
+@media screen and (min-width: 700px){
+    .correct-container, .wrong-container {
+        font-size: 15rem;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .correct-container, .wrong-container {
+        font-size: 20rem;
+    }
 }

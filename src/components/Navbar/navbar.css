@@ -37,7 +37,7 @@
     display: none;
 }
 
-.plus-section, .notifications-section, .profile-section{
+.plus-section, .notifications-section, .home-section{
     background-color: var(--primary);
     height: 2rem;
     width: 2rem;
@@ -164,7 +164,7 @@
         font-size: 1.5rem;
     }
 
-    .plus-section, .notifications-section, .profile-section{
+    .plus-section, .notifications-section, .home-section{
         height: 2.5rem;
         width: 2.5rem;
     }
@@ -194,7 +194,7 @@
         font-size: 1.5rem;
     }
 
-    .plus-section, .notifications-section, .profile-section{
+    .plus-section, .notifications-section, .home-section{
         height: 2.9rem;
         width: 2.9rem;
     }

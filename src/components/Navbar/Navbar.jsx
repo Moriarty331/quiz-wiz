@@ -4,6 +4,7 @@ import {VscAdd} from 'react-icons/vsc'
 import {IoNotificationsOutline} from 'react-icons/io5'
 import {Dropdown, DropdownItem } from '../Dropdown/Dropdown';
 import {BiSolidExit} from 'react-icons/bi'
+import {AiOutlineHome} from 'react-icons/ai'
 import './navbar.css'
 import { useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
@@ -79,9 +80,11 @@ export const Navbar = (props) => {
                             </Dropdown>
                         }
                     </div>
-
-                    <div className="profile-section">
+                    <Link to="/">
+                    <div className="home-section">
+                        <AiOutlineHome className='home-icon icon'></AiOutlineHome>
                     </div>
+                    </Link>
                 </div>
 
                 </div>

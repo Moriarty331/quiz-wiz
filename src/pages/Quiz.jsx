@@ -3,24 +3,19 @@ import {Navbar} from '../components/Navbar/Navbar'
 import { InputTermDefinition } from '../components/TermDefinition/InputTermDefinition';
 import {Flashcard, FlashcardQuiz} from '../components/Flashcard/Flashcard';
 import {AiOutlineCheck} from 'react-icons/ai'
+import {AiOutlineStop} from 'react-icons/ai'
 import './quiz.css'
 
 export const Quiz = () => {
     const [flashcards, setFlashcards] = useState([
-        {
-            termName: "Johann Sebastian Bach",
-            definitionName: "was one of the best knowns of all composers in classical music. He was a natural genius at keyboard and composing and he also mastered the organ and harpsichord.",
-        }
     ]);
 
     const [userAnswer, setUserAnswer] = useState("");
     const [term, setTerm] = useState("");
     const [definition, setdefinition] = useState("");
     const [show, setShow] = useState(true);
-    //const [currentFlashcard, setCurrentFlashcard] = useState(flashcards[0]);
     const [index, setIndex] = useState(0);
     const [isEmpty, setIsEmpty] = useState(flashcards.length === 0);
-    console.log(isEmpty)
     const handleTerm = (value) => {
         setTerm(value);
     }
@@ -48,36 +43,40 @@ export const Quiz = () => {
         setIsEmpty(false)
 
     }
-
+    
     const submit = (e) => {
-        
-        
         
         if (userAnswer.toLowerCase() === flashcards[index].termName.toLowerCase())
         {
-            const correct = document.querySelector(".correct");
-            correct.classList.add("slide-bottom")
+            const correctContainer = document.querySelector(".correct-container");
+            correctContainer.classList.add("slide-bottom")
+            correctContainer.classList.add("darken")
             setTimeout(() => {
-                correct.classList.remove("slide-bottom");
-            }, 1000);
+                correctContainer.classList.remove("slide-bottom");
+                correctContainer.classList.remove("darken");
+                if (index < flashcards.length - 1) 
+                    setIndex(index + 1)
+                else if (index === flashcards.length - 1)
+                    setIndex(0)
+            }, 1200);
+            
         }
         
         else {
-
+            const wrongContainer = document.querySelector(".wrong-container");
+            wrongContainer.classList.add("slide-bottom")
+            wrongContainer.classList.add("darken")
+            setTimeout(() => {
+                wrongContainer.classList.remove("slide-bottom");
+                wrongContainer.classList.remove("darken");
+            }, 1200);
         }
-
-        setTimeout(() => {
-            if (index < flashcards.length - 1) 
-                setIndex(index + 1)
-            else if (index === flashcards.length - 1)
-                setIndex(0)
-
-            setUserAnswer("");
-        }, 700)
+       
+         setUserAnswer("");
         
     }
 
-    console.log(flashcards)
+    
     return (
         <div className="quiz-container">
             <Navbar name="Quiz"></Navbar>
@@ -98,10 +97,15 @@ export const Quiz = () => {
                         userAnswer={handleCorrectAns}
                         UserValue={userAnswer}
                     />
-                    <div className="correct-wrong">
+                    <div className="correct-container">
                         <AiOutlineCheck className='correct'></AiOutlineCheck>
                     </div>
+
+                    <div className="wrong-container">
+                        <AiOutlineStop className='wrong'></AiOutlineStop>
+                    </div>
                 </Flashcard>
+                {!isEmpty && <p className='count-flashcards'>{index + 1} / {flashcards.length}</p>}
             </div>
         </div>
     )
