@@ -6,8 +6,10 @@ import {Dropdown, DropdownItem } from '../Dropdown/Dropdown';
 import {BiSolidExit} from 'react-icons/bi'
 import {AiOutlineHome} from 'react-icons/ai'
 import './navbar.css'
+import profileImage from '../../assets/images/profile.jpg'
 import { useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+//import profile from
 
 export const Navbar = (props) => {
     const [showDropdown, setShowDropdown] = useState('temp');
@@ -26,18 +28,23 @@ export const Navbar = (props) => {
         //dropdown.classList.toggle("animate-dropdown");
     }
 
-    useEffect(() => {
-        const dropdown = document.querySelector(".settings-dropdown-container");
-        if (dropdown !== null)
-        {
-        }
-    }, [showDropdown])
-   
 
     return (
         <header>
             <div className='sidebar'>
+                <div className="exit-container">
                 <BiSolidExit className='exit' onClick={handleSidebar}/>
+                </div>
+                <div className="profile-img-container">
+                    <img src={profileImage} alt="" />
+                   
+                </div>
+                <div className="profile-options">
+                    <h3 className='profile-name'>Milowithsugar</h3>
+                    <p>About</p>
+                    <p>Profile Settings</p>
+                    <p>Back to home</p>
+                </div>
             </div>
 
             <div className="navbar-container">
@@ -61,6 +68,7 @@ export const Navbar = (props) => {
                             }
                         </div>
                     </div>
+
                 </div>
 
                 <div className="nav-right">

@@ -21,6 +21,7 @@
     display: flex;
     overflow-x: scroll;
     cursor: pointer;
+    overflow-x: hidden;
 }
 
 .flashcard{
@@ -31,6 +32,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    overflow-x: hidden;
 }
 
 .flashcard-quiz {

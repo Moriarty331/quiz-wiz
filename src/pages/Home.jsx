@@ -7,7 +7,7 @@ import {Navbar} from '../components/Navbar/Navbar';
 import { InputTermDefinition } from '../components/TermDefinition/InputTermDefinition';
 import {MdQuiz} from 'react-icons/md'
 import './home.css'
-
+import profile1 from '../assets/images/profile.jpg'
 
 export const Home = () => {
     const [flashcards, setFlashcards] = useState([]);
@@ -21,7 +21,7 @@ export const Home = () => {
     const handleTerm = (value) => {
         setTerm(value);
     }
-
+    
     const handleDefinition = (value) => {
         setdefinition(value);
     }
@@ -35,11 +35,11 @@ export const Home = () => {
 
         if (term != "" && definition != " ") {
             setFlashcards([...flashcards, flashcard])
+            setTerm('');
+            setdefinition('');
+            setIsEmpty(false)
         }
-        setTerm('');
-        setdefinition('');
-        setIsEmpty(false)
-
+        
     }
 
     const handleFlashcard = () => {

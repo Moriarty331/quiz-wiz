@@ -49,8 +49,9 @@ export const Quiz = () => {
         if (userAnswer.toLowerCase() === flashcards[index].termName.toLowerCase())
         {
             const correctContainer = document.querySelector(".correct-container");
-            correctContainer.classList.add("slide-bottom")
+            
             correctContainer.classList.add("darken")
+            correctContainer.classList.add("slide-bottom")
             setTimeout(() => {
                 correctContainer.classList.remove("slide-bottom");
                 correctContainer.classList.remove("darken");
@@ -59,21 +60,19 @@ export const Quiz = () => {
                 else if (index === flashcards.length - 1)
                     setIndex(0)
             }, 1200);
-            
+            setUserAnswer("");
         }
         
         else {
             const wrongContainer = document.querySelector(".wrong-container");
-            wrongContainer.classList.add("slide-bottom")
             wrongContainer.classList.add("darken")
+            wrongContainer.classList.add("slide-bottom")
             setTimeout(() => {
                 wrongContainer.classList.remove("slide-bottom");
                 wrongContainer.classList.remove("darken");
             }, 1200);
         }
-       
-         setUserAnswer("");
-        
+        setUserAnswer("");  
     }
 
     
