@@ -3,13 +3,33 @@ import {Navbar} from '../components/Navbar/Navbar'
 import { InputTermDefinition } from '../components/TermDefinition/InputTermDefinition'
 import {Link} from 'react-router-dom';
 import './createtask.css'
-export const CreateTask = () => {
-    const [termDefinitions, setTermDefinitions] = useState([<InputTermDefinition></InputTermDefinition>]);
 
-    const addCard = () => {
-        setTermDefinitions([...termDefinitions, <InputTermDefinition></InputTermDefinition>])
+export const CreateTask = () => {
+    const [term, setTerm] = useState([]);
+    const [definition, setDefinition] = useState([]);
+    const [index, setIndex] = useState(0)
+    const array = [];
+    const handleTerm = (value) => {
+        setTerm(...term, value);
+    }
+    
+    const handleDefinition = (value) => {
+        setDefinition(...definition, value);
     }
 
+    const [termDefinitions, setTermDefinitions] = useState([]);
+
+
+    const addCard = () => {
+        setTermDefinitions([...termDefinitions, <InputTermDefinition
+            onDefinitionChange={handleDefinition}
+            onTermChange={handleTerm}
+            key={index}
+            ></InputTermDefinition>])
+            setIndex(index + 1)
+    }
+    
+    console.log(term)
     return (
         <div className="create-task-container">
             <Navbar name="Create Task"></Navbar>
@@ -27,7 +47,7 @@ export const CreateTask = () => {
                     <button onClick={addCard}>Add Card</button>
                 </div>
                 
-                <Link to="/"><button className='create'>Create</button></Link>
+                <button className='create'>Create</button>
             </div>        
           
         </div>

@@ -2,9 +2,7 @@ import { useState } from 'react'
 import './input.css'
 
 export const InputTermDefinition = (props) => {
-    const [term, setTerm] = useState("");
-    const [definition, setdefinition] = useState("");
-    const { onTermChange, onDefinitionChange } = props; 
+    const {onTermChange, onDefinitionChange } = props; 
     return (
 
         <div className="input-term-definition">

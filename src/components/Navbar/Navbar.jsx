@@ -12,7 +12,8 @@ import {Link} from 'react-router-dom';
 //import profile from
 
 export const Navbar = (props) => {
-    const [showDropdown, setShowDropdown] = useState('temp');
+    const [showDropdown, setShowDropdown] = useState('');
+
     const handleSidebar = () => {
         const sidebar = document.querySelector('.sidebar');
         sidebar.classList.toggle('show')
@@ -33,8 +34,9 @@ export const Navbar = (props) => {
         <header>
             <div className='sidebar'>
                 <div className="exit-container">
-                <BiSolidExit className='exit' onClick={handleSidebar}/>
+                    <BiSolidExit className='exit' onClick={handleSidebar}/>
                 </div>
+
                 <div className="profile-img-container">
                     <img src={profileImage} alt="" />
                    

@@ -54,6 +54,17 @@
     text-decoration: none;
     color: black;
 }
+
+.save {
+    width: 100%;
+    margin: auto;
+    height: 3rem;
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
 @media screen and (min-width: 1024px){
     .add {
         width: 25rem;

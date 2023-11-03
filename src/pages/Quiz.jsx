@@ -7,8 +7,10 @@ import {AiOutlineStop} from 'react-icons/ai'
 import './quiz.css'
 
 export const Quiz = () => {
-    const [flashcards, setFlashcards] = useState([
-    ]);
+    //const [flashcards, setFlashcards] = useState([]);
+    const flashcards = JSON.parse(localStorage.getItem("myFlashcards"));
+    //console.log(test)
+   
 
     const [userAnswer, setUserAnswer] = useState("");
     const [term, setTerm] = useState("");
@@ -28,22 +30,6 @@ export const Quiz = () => {
         setUserAnswer(value);
     }
 
-    const addFlashcard = () =>
-    {
-        const flashcard = {
-            termName: term,
-            definitionName : definition,
-        }
-
-        if (term != "" && definition != "") {
-            setFlashcards([...flashcards, flashcard])
-        }
-        setTerm('');
-        setdefinition('');
-        setIsEmpty(false)
-
-    }
-    
     const submit = (e) => {
         
         if (userAnswer.toLowerCase() === flashcards[index].termName.toLowerCase())
@@ -80,14 +66,6 @@ export const Quiz = () => {
         <div className="quiz-container">
             <Navbar name="Quiz"></Navbar>
             <div className="quiz-main">
-                <InputTermDefinition
-                    onTermChange={handleTerm}
-                    onDefinitionChange={handleDefinition}
-                    termValue={term}        
-                    DefinitionValue={definition}>
-                    <button className='add' onClick={addFlashcard}>Add Flashcard</button>
-                </InputTermDefinition>
-                
                 <Flashcard>
                     <FlashcardQuiz 
                         definition={isEmpty ? "" : flashcards[index].definitionName}

@@ -10,14 +10,15 @@ import './home.css'
 import profile1 from '../assets/images/profile.jpg'
 
 export const Home = () => {
+    const userFlashcards = JSON.parse(localStorage.getItem("myFlashcards"));
     const [flashcards, setFlashcards] = useState([]);
     const [term, setTerm] = useState("");
     const [definition, setdefinition] = useState("");
     const [show, setShow] = useState(true);
     //const [currentFlashcard, setCurrentFlashcard] = useState(flashcards[0]);
     const [index, setIndex] = useState(0);
-    const [isEmpty, setIsEmpty] = useState(flashcards.length === 0);
-    console.log(isEmpty)
+    const [isEmpty, setIsEmpty] = useState(userFlashcards.length === 0);
+    console.log(userFlashcards)
     const handleTerm = (value) => {
         setTerm(value);
     }
@@ -37,7 +38,6 @@ export const Home = () => {
             setFlashcards([...flashcards, flashcard])
             setTerm('');
             setdefinition('');
-            setIsEmpty(false)
         }
         
     }
@@ -47,13 +47,17 @@ export const Home = () => {
     }
 
     const handleCount = () => {
-        if (index < flashcards.length - 1) 
+        if (index < userFlashcards.length - 1) 
             setIndex(index + 1)
-        else if (index === flashcards.length - 1)
+        else if (index === userFlashcards.length - 1)
             setIndex(0)
         setShow(true)
     }
 
+    const saveFlashcards = () => {
+        const allFlashcards = JSON.stringify(flashcards)
+        localStorage.setItem("myFlashcards", allFlashcards);
+    }
     console.log(flashcards)
     return (
         <div className="home">
@@ -81,17 +85,18 @@ export const Home = () => {
 
                 <Flashcard countFunction={handleCount}>
                     <FlashcardItem 
-                    term={isEmpty ? "" : flashcards[index].termName} 
-                    definition={isEmpty ? "" : flashcards[index].definitionName} 
+                    term={isEmpty ? "" : userFlashcards[index].termName} 
+                    definition={isEmpty ? "" : userFlashcards[index].definitionName} 
                     showCard={handleFlashcard}
                     showFlashCard={show}
                     >   
                     </FlashcardItem> 
                                                            
                 </Flashcard>
-                
+                <button onClick={saveFlashcards} className="save">Save flashcards</button>
             </div>
 
+            
         </div>
     )
 }
